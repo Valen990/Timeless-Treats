@@ -11,5 +11,6 @@
 </head>
 <body>
     <p>Holii, desde la vista de los Productos</p>
+    <h2>PROBADO X2 XD</h2>
 </body>
 </html>
