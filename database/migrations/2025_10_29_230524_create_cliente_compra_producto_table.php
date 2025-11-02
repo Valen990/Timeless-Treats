@@ -12,18 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Cliente_compra_Producto', function (Blueprint $table) {
-            $table->id('compraID');
-            $table->string('descripcionCompra');
-            $table->date('fechaCompra');
-            $table->string('estadoCompra', 15);
-            $table->string('metodoPago', 15);
-            $table->float('totalCompra', 10, 8);
-
-            $table->string('cedulaCliente', 10);
-            $table->foreign('cedulaCliente')->references('cedulaCliente')->on('cliente');
-            $table->string('productoID', 10);
-            $table->foreign('productoID')->references('productoID')->on('producto');
-        });
+        $table->id('compraID'); 
+        $table->integer('cantidadCompra');
+        $table->date('fechaCompra');
+        $table->string('estadoCompra', 15);
+        $table->string('metodoPago', 50);
+        $table->decimal('totalCompra', 10, 2);
+        $table->string('cedulaCliente', 10);
+        $table->foreign('cedulaCliente')->references('cedulaCliente')->on('cliente');
+        $table->string('productoID', 10);
+        $table->foreign('productoID')->references('productoID')->on('producto');
+    });
     }
 
     /**

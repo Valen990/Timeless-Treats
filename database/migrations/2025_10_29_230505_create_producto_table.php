@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('producto', function (Blueprint $table) {
             $table->string('productoID', 10)->primary();
-            $table->string('nombreProducto', 20);
-            $table->string('descripcionProducto', 50);
+            $table->string('nombreProducto', 50);
+            $table->string('descripcionProducto', 150);
             $table->float('precioProducto');
             $table->string('fotoProducto', 150);
             $table->integer('stockProducto');
