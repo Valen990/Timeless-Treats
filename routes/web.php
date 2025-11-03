@@ -11,9 +11,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/inicio', function () {
+    return view('Home.HomeView');
+})->middleware(['auth', 'verified'])->name('inicio');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -22,9 +23,14 @@ Route::middleware('auth')->group(function () {
 });
 
 #Rutas iniciales funcionando :D
+/*Route::get('/inicio', function () {
+    return view('Home.HomeView');
+})->middleware(['auth', 'verified'])->name('inicio');*/
+
 Route::get('/clientes', [ClienteController::class, 'index'])->middleware(['auth', 'verified'])->name('clientes'); 
 Route::get('/categorias', [CategoriaController::class, 'index'])->middleware(['auth', 'verified'])->name('categorias');
 Route::get('/productos', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('productos');
 Route::get('/compras', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('compras');
+
 
 require __DIR__.'/auth.php';
