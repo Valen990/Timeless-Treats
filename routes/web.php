@@ -11,9 +11,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/inicio', function () {
+Route::get('/dashboard', function () {
     return view('Home.HomeView');
-})->middleware(['auth', 'verified'])->name('inicio');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
