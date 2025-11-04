@@ -4,12 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bienvenido - Timeless Treats</title>
-        <link rel="stylesheet" */href="{{ asset('/css/app.css') }}" /*>
-
+        
         <style>
             .hero {
                 padding: 3rem 0;
-                background: linear-gradient(135deg, #fff5f7 0%, #fff 100%);
+                background: #F0AEA1  ;/*linear-gradient(135deg, #fff5f7 0%, #fff 100%);*/
                 min-height: 80vh;
                 display: flex;
                 align-items: center;
@@ -40,7 +39,7 @@
                 height: 450px;
                 border-radius: 12px;
                 overflow: hidden;
-                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             }
 
             .carousel-slide {
@@ -73,10 +72,10 @@
                 gap: 1rem;
                 margin-top: 1.5rem;
             }
-            
+
             .carousel-btn {
                 background-color: rgba(255, 255, 255, 0.9);
-                color: #d63384;
+                color: #870A0A ;
                 border: none;
                 width: 50px;
                 height: 50px;
@@ -84,14 +83,14 @@
                 font-size: 1.4rem;
                 cursor: pointer;
                 transition: 0.3s;
-                box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
 
             .carousel-btn:hover {
-                background-color: #d63384;
+                background-color: #870A0A ;
                 color: white;
                 transform: scale(1.1);
             }
@@ -101,7 +100,7 @@
                 background: white;
                 padding: 3rem;
                 border-radius: 15px;
-                box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
                 height: fit-content;
                 position: relative;
             }
@@ -117,25 +116,38 @@
             .typewriter-text {
                 font-size: 3.2rem;
                 font-weight: 800;
-                color: #d63384;
+                color: #870A0A ;
                 letter-spacing: 2px;
                 min-height: 1.2em;
                 font-family: 'Georgia', serif;
                 overflow: hidden;
                 white-space: nowrap;
-                border-right: 3px solid #d63384;
+                border-right: 3px solid #870A0A ;
                 animation: typing 2.5s steps(15, end) forwards, blink 0.8s infinite;
                 width: 0;
             }
 
             @keyframes typing {
-                from { width: 0; }
-                to { width: 100%; }
+                from {
+                    width: 0;
+                }
+
+                to {
+                    width: 100%;
+                }
             }
 
             @keyframes blink {
-                0%, 50% { border-right-color: #d63384; }
-                51%, 100% { border-right-color: transparent; }
+
+                0%,
+                50% {
+                    border-right-color: #870A0A ;
+                }
+
+                51%,
+                100% {
+                    border-right-color: transparent;
+                }
             }
 
             .hero-subtitle {
@@ -154,7 +166,7 @@
                 margin-bottom: 2.5rem;
                 font-size: 1.1rem;
                 line-height: 1.7;
-                color: #555;
+                color: grey;
                 text-align: left;
                 border-left: 3px solid #f8d7e6;
                 padding-left: 1.5rem;
@@ -183,26 +195,26 @@
             }
 
             .btn-primary {
-                background-color: #3b0a1e;
+                background-color: #C2602B;
                 color: white;
-                border: 2px solid #3b0a1e;
+                border: 2px solid #C2602B;
             }
 
             .btn-primary:hover {
-                background-color: #b02e6d;
-                border-color: #b02e6d;
+                background-color: #870A0A ;
+                border-color: #870A0A ;
                 transform: translateY(-2px);
                 box-shadow: 0 6px 12px rgba(214, 51, 132, 0.3);
             }
 
             .btn-secondary {
                 background-color: transparent;
-                color: #3b0a1e;
-                border: 2px solid #3b0a1e;
+                color: #870A0A ;
+                border: 2px solid #870A0A ;
             }
 
             .btn-secondary:hover {
-                background-color: #d63384;
+                background-color: #C2602B;
                 color: white;
                 transform: translateY(-2px);
                 box-shadow: 0 6px 12px rgba(214, 51, 132, 0.3);
@@ -210,7 +222,7 @@
 
             /* ABOUT SECTION */
             .about-section {
-                background-color: #f8f9fa;
+                background-color: #C2602B;
                 padding: 4rem 0;
                 margin-top: 3rem;
                 border-top: 1px solid #eee;
@@ -220,7 +232,7 @@
                 text-align: center;
                 font-size: 2.2rem;
                 margin-bottom: 3rem;
-                color: #333;
+                color: #870A0A ;
                 font-weight: 700;
                 position: relative;
             }
@@ -230,7 +242,7 @@
                 display: block;
                 width: 60px;
                 height: 3px;
-                background-color: #d63384;
+                background-color: #870A0A ;
                 margin: 0.5rem auto;
             }
 
@@ -245,13 +257,13 @@
                 padding: 2.5rem 1.5rem;
                 border-radius: 12px;
                 background-color: white;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
                 transition: 0.3s;
             }
 
             .about-card:hover {
                 transform: translateY(-5px);
-                box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
             }
 
             .about-icon {
@@ -262,7 +274,7 @@
             .about-card h3 {
                 font-size: 1.5rem;
                 margin-bottom: 1rem;
-                color: #d63384;
+                color: #870A0A ;
                 font-weight: 600;
             }
 
@@ -273,20 +285,34 @@
 
             /* ANIMACIONES */
             @keyframes slideInLeft {
-                from { opacity: 0; transform: translateX(-50px); }
-                to { opacity: 1; transform: translateX(0); }
+                from {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
             }
 
             @keyframes slideInRight {
-                from { opacity: 0; transform: translateX(50px); }
-                to { opacity: 1; transform: translateX(0); }
+                from {
+                    opacity: 0;
+                    transform: translateX(50px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
             }
 
             /* RESPONSIVE */
             @media (max-width: 968px) {
-                .hero-grid { 
-                    grid-template-columns: 1fr; 
-                    gap: 3rem; 
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                    gap: 3rem;
                 }
 
                 .hero-content-box {
@@ -294,13 +320,13 @@
                     margin-bottom: 1rem;
                 }
 
-                .typewriter-text { 
-                    font-size: 2.8rem; 
+                .typewriter-text {
+                    font-size: 2.8rem;
                     text-align: center;
                 }
 
-                .hero-subtitle { 
-                    font-size: 1.3rem; 
+                .hero-subtitle {
+                    font-size: 1.3rem;
                     text-align: center;
                 }
 
@@ -316,8 +342,8 @@
                     justify-content: center;
                 }
 
-                .carousel-container { 
-                    height: 350px; 
+                .carousel-container {
+                    height: 350px;
                 }
             }
 
@@ -326,28 +352,28 @@
                     padding: 2rem 1.5rem;
                 }
 
-                .typewriter-text { 
-                    font-size: 2.2rem; 
+                .typewriter-text {
+                    font-size: 2.2rem;
                 }
 
-                .hero-subtitle { 
-                    font-size: 1.1rem; 
+                .hero-subtitle {
+                    font-size: 1.1rem;
                 }
 
-                .hero-buttons { 
+                .hero-buttons {
                     flex-direction: column;
                     align-items: center;
                 }
 
-                .btn { 
-                    width: 100%; 
+                .btn {
+                    width: 100%;
                     max-width: 250px;
                 }
 
-                .carousel-container { 
-                    height: 300px; 
+                .carousel-container {
+                    height: 300px;
                 }
-                
+
                 .section-title {
                     font-size: 1.8rem;
                 }
@@ -371,9 +397,7 @@
     </head>
 
     <body>
-        {{-- ✅ NAVBAR (arriba del todo) --}}
         @include('partials.navbar')
-        <!-- HERO SECTION -->
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -450,7 +474,6 @@
             </div>
         </section>
 
-        {{-- ✅ FOOTER (al final del body) --}}
         @include('partials.footer')
 
         <script>
