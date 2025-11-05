@@ -1,7 +1,7 @@
 <nav class="navbar">
     <style>
         .navbar {
-            background-color: #3b0a1e;
+            background-color: #EFD9A1;
             border-bottom: 1px solid #f3f3f3;
             position: sticky;
             top: 0;
@@ -28,7 +28,7 @@
         .navbar-logo-circle {
             width: 42px;
             height: 42px;
-            background-color: #d63384;
+            background-color: #C3382B;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -40,7 +40,7 @@
 
         .navbar-logo-text {
             font-weight: 700;
-            color: #8b2c5f;
+            color: #6D0A0A;
             font-size: 1.1rem;
             letter-spacing: 1px;
         }
@@ -51,7 +51,7 @@
         }
 
         .navbar-links a {
-            color: #f3f3f3;
+            color: #6D0A0A;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;

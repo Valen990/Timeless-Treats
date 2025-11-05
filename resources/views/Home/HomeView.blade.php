@@ -9,7 +9,7 @@
         <style>
             .hero {
                 padding: 3rem 0;
-                background: linear-gradient(135deg, #fff5f7 0%, #fff 100%);
+                background: #3b0a0aff;
                 min-height: 80vh;
                 display: flex;
                 align-items: center;
@@ -31,6 +31,15 @@
 
             .hero-right {
                 animation: slideInRight 0.8s ease-out;
+                background: color: #6D0A0A
+            }
+
+            #typewriter{
+                color: #6D0A0A
+            }
+
+            p.hero-subtitle{
+                color: #6D0A0A
             }
 
             /* CARRUSEL CON IMÁGENES NÍTIDAS */
@@ -75,8 +84,8 @@
             }
             
             .carousel-btn {
-                background-color: rgba(255, 255, 255, 0.9);
-                color: #d63384;
+                background-color: #EFD9A1;
+                color: #C3382B;
                 border: none;
                 width: 50px;
                 height: 50px;
@@ -91,16 +100,16 @@
             }
 
             .carousel-btn:hover {
-                background-color: #d63384;
+                background-color: #6D0A0A;
                 color: white;
                 transform: scale(1.1);
             }
 
             /* DERECHA - CAJA BLANCA CON CONTENIDO Y BOTONES */
             .hero-content-box {
-                background: white;
+                background: #EFD9A1;
                 padding: 3rem;
-                border-radius: 15px;
+                border-radius: 15%;
                 box-shadow: 0 8px 30px rgba(0,0,0,0.1);
                 height: fit-content;
                 position: relative;
@@ -114,7 +123,35 @@
                 margin-bottom: 1rem;
             }
 
-            .typewriter-text {
+            :root{
+                --sletras:54;
+                --wletras:54ch;
+            }
+
+            span{
+                /*display: block;*/
+                font-size: 3.2rem;
+                font-weight: 800;
+                color: #6D0A0A;
+                //letter-spacing: 2px;
+                min-height: 1.2em;
+                font-family: 'Georgia', serif;
+                overflow: hidden;
+                white-space: nowrap;
+                //border-right: 3px solid #d63384;
+                width: 54ch;
+                margin: auto;
+
+                animation: typing 5s steps(var(--sletras))infinite
+                alternate-reverse;
+            }
+
+            @keyframes typing {
+                from{width: 0;};
+                to{width:var(--wletras);}
+            } 
+
+            /*.typewriter-text {
                 font-size: 3.2rem;
                 font-weight: 800;
                 color: #d63384;
@@ -126,7 +163,7 @@
                 border-right: 3px solid #d63384;
                 animation: typing 2.5s steps(15, end) forwards, blink 0.8s infinite;
                 width: 0;
-            }
+            }*/
 
             @keyframes typing {
                 from { width: 0; }
@@ -154,7 +191,7 @@
                 margin-bottom: 2.5rem;
                 font-size: 1.1rem;
                 line-height: 1.7;
-                color: #555;
+                color: #6D0A0A;
                 text-align: left;
                 border-left: 3px solid #f8d7e6;
                 padding-left: 1.5rem;
@@ -183,14 +220,14 @@
             }
 
             .btn-primary {
-                background-color: #3b0a1e;
+                background-color: #3b0a0aff;
                 color: white;
                 border: 2px solid #3b0a1e;
             }
 
             .btn-primary:hover {
-                background-color: #b02e6d;
-                border-color: #b02e6d;
+                background-color: #6D0A0A;
+                border-color: #6D0A0A;
                 transform: translateY(-2px);
                 box-shadow: 0 6px 12px rgba(214, 51, 132, 0.3);
             }
@@ -202,7 +239,7 @@
             }
 
             .btn-secondary:hover {
-                background-color: #d63384;
+                background-color: #6D0A0A;
                 color: white;
                 transform: translateY(-2px);
                 box-shadow: 0 6px 12px rgba(214, 51, 132, 0.3);
@@ -307,7 +344,7 @@
                 .description-box {
                     text-align: center;
                     border-left: none;
-                    border-top: 3px solid #f8d7e6;
+                    border-top: 3px solid #951818ff;
                     padding-left: 0;
                     padding-top: 1rem;
                 }
@@ -406,7 +443,7 @@
                     <div class="hero-right">
                         <div class="hero-content-box">
                             <div class="typewriter-container">
-                                <h1 class="typewriter-text" id="typewriter">TIMELESS TREATS.</h1>
+                                <span>TIMELESS TREATS</span>
                             </div>
                             <p class="hero-subtitle">Modern Bakery</p>
                             
