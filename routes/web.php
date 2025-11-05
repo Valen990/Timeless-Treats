@@ -32,5 +32,4 @@ Route::get('/categorias', [CategoriaController::class, 'index'])->middleware(['a
 Route::get('/productos', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('productos');
 Route::get('/compras', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('compras');
 
-
 require __DIR__.'/auth.php';

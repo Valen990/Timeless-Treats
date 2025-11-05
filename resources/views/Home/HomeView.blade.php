@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bienvenido - Timeless Treats</title>
-        <link rel="stylesheet" */href="{{ asset('/css/app.css') }}" /*>
-
+        
         <style>
             .hero {
                 padding: 3rem 0;
@@ -408,9 +407,7 @@
     </head>
 
     <body>
-        {{-- ✅ NAVBAR (arriba del todo) --}}
         @include('partials.navbar')
-        <!-- HERO SECTION -->
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -487,7 +484,6 @@
             </div>
         </section>
 
-        {{-- ✅ FOOTER (al final del body) --}}
         @include('partials.footer')
 
         <script>

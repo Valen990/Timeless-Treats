@@ -1,60 +1,60 @@
+<style>
+    footer {
+    background-color: #870A0A;
+    color: #F0AEA1;
+    padding: 3rem 2rem 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2.5rem;
+    }
+
+    .footer-section h3 {
+        color: #fff;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    .footer-section a {
+        color: #F0AEA1;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+        color: #fff;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: 2rem;
+        padding-top: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #f5e1e9;
+    }
+
+    .footer-bottom a {
+        color: #ffb6c1;
+        text-decoration: none;
+        margin: 0 0.5rem;
+    }
+
+   .footer-bottom a:hover {
+    text-decoration: underline;
+    }
+</style>
+
 <footer>
-    <style>
-        footer {
-            background-color: #3b0a1e;
-            color: #f5e1e9;
-            padding: 3rem 2rem 1.5rem;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .footer-section h3 {
-            color: #fff;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .footer-section a {
-            color: #f5e1e9;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #ffb6c1;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 2rem;
-            padding-top: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #f5e1e9;
-        }
-
-        .footer-bottom a {
-            color: #ffb6c1;
-            text-decoration: none;
-            margin: 0 0.5rem;
-        }
-
-        .footer-bottom a:hover {
-            text-decoration: underline;
-        }
-    </style>
-
     <div class="footer-container">
         <div class="footer-section">
             <h3>Timeless Treats</h3>
