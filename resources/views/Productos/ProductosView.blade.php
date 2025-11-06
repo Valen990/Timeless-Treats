@@ -92,7 +92,6 @@
     </head>
     <body>
         @include('partials.navbar')
-
         <section class="productos-header text-center py-5">
             <h1 class="fw-bold text-white">Nuestros Productos</h1>
             <p class="text-white-50 fs-5">Descubre nuestra exquisita selección de productos artesanales</p>

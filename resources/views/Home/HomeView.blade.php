@@ -192,7 +192,7 @@
                 line-height: 1.7;
                 color: #6D0A0A;
                 text-align: left;
-                border-left: 3px solid #f8d7e6;
+                border-left: 3px solid #6D0A0A;
                 padding-left: 1.5rem;
             }
 
@@ -220,7 +220,7 @@
 
             .btn-primary {
                 background-color: #3b0a0aff;
-                color: white;
+                color: #EFD9A1;
                 border: 2px solid #3b0a1e;
             }
 
@@ -246,17 +246,17 @@
 
             /* ABOUT SECTION */
             .about-section {
-                background-color: #f8f9fa;
+                background-color: #3b0a1e;
                 padding: 4rem 0;
                 margin-top: 3rem;
-                border-top: 1px solid #eee;
+                border-top: 1px solid #EFD9A1;
             }
 
             .section-title {
                 text-align: center;
                 font-size: 2.2rem;
                 margin-bottom: 3rem;
-                color: #333;
+                color: #EFD9A1;
                 font-weight: 700;
                 position: relative;
             }
@@ -266,7 +266,7 @@
                 display: block;
                 width: 60px;
                 height: 3px;
-                background-color: #d63384;
+                background-color: #EFD9A1;
                 margin: 0.5rem auto;
             }
 
@@ -280,7 +280,7 @@
                 text-align: center;
                 padding: 2.5rem 1.5rem;
                 border-radius: 12px;
-                background-color: white;
+                background-color: #EFD9A1;
                 box-shadow: 0 3px 10px rgba(0,0,0,0.08);
                 transition: 0.3s;
             }
@@ -298,13 +298,17 @@
             .about-card h3 {
                 font-size: 1.5rem;
                 margin-bottom: 1rem;
-                color: #d63384;
+                color: #3b0a1e;
                 font-weight: 600;
             }
 
             .about-card p {
-                color: #666;
+                color: #3b0a1e;
                 line-height: 1.6;
+            }
+
+            section.about.section{
+                background-color: #EFD9A1;
             }
 
             /* ANIMACIONES */
@@ -399,6 +403,7 @@
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 color: #333;
+                background-color: #EFD9A1;
                 line-height: 1.6;
                 margin: 0;
                 padding: 0;
