@@ -1,4 +1,5 @@
 <style>
+    /* ======== NAVBAR PRINCIPAL ======== */
     .navbar {
         background-color: #EFD9A1;
         border-bottom: 1px solid #870A0A;
@@ -6,17 +7,25 @@
         top: 0;
         z-index: 1000;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+        /* 🔹 Altura fija y alineación vertical */
+        height: 70px;
+        display: flex;
+        align-items: center;
     }
 
+    /* ======== CONTENEDOR CENTRAL ======== */
     .navbar-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 1rem 2rem;
+        padding: 0 2rem; /* 🔹 sin padding vertical */
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: 100%;
     }
 
+    /* ======== LOGO ======== */
     .navbar-logo {
         display: flex;
         align-items: center;
@@ -24,69 +33,71 @@
         text-decoration: none;
     }
 
-    /*.navbar-logo-circle {
-        width: 42px;
-        height: 42px;
-        background-color: #870A0A;
-        color: white;
+    /* Contenedor del ícono */
+    .navbar-logo-circle {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
+        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
-        font-size: 1.2rem;
-    }*/
+    }
 
+    /* Imagen dentro del círculo */
+    .navbar-logo-circle img.navbar-logo-img {
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Texto del logo */
     .navbar-logo-text {
         font-weight: 700;
         color: #6D0A0A;
         font-size: 1.1rem;
         letter-spacing: 1px;
-    }
-    
-    .navbar-logo-circle {
-        width: 50px;       /* tamaño del contenedor */
-        height: 50px;
-        border-radius: 50%; /* círculo */
-        overflow: hidden;   /* recorta cualquier parte que sobresalga */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin: 0;
     }
 
-    .navbar-logo-circle img.navbar-logo {
-        width: 80%;         /* la imagen ocupará el 80% del contenedor */
-        height: auto;       /* mantiene proporción */
-        object-fit: contain; /* asegura que no se deforme */
-    }
-
+    /* ======== ENLACES ======== */
     .navbar-links {
         display: flex;
+        align-items: center;
         gap: 2rem;
     }
 
+    /* Enlaces normales */
     .navbar-links a {
         color: #6D0A0A;
         text-decoration: none;
         font-weight: 500;
-        transition: color 0.3s;
+        transition: color 0.3s, font-weight 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
     }
 
+    /* Hover */
     .navbar-links a:hover {
         color: #6D0A0A;
-        font-weight: bold
+        font-weight: 700;
     }
 
-    /*Esto funcionó para que no se moviera el estilo al chocar con otros de otras páginas */
-    .navbar {
-        text-align: left !important;
-    }
+    /* ======== RESPONSIVE ======== */
+    @media (max-width: 768px) {
+        .navbar-container {
+            flex-direction: column;
+            gap: 0.8rem;
+            height: auto;
+            padding: 0.5rem 1rem;
+        }
 
-    .navbar-container {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        width: 100% !important;
+        .navbar-links {
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
 </style>
 
@@ -94,7 +105,7 @@
     <div class="navbar-container">
         <a href="/dashboard" class="navbar-logo">
             <div class="navbar-logo-circle">
-                <img src="{{ asset('imagenes/logo1.png') }}" alt="Logo" class="navbar-logo">
+                <img src="{{ asset('imagenes/logo1.png') }}" alt="Logo" class="navbar-logo-img">
             </div>
             <p class="navbar-logo-text">Timeless Treats</p>
         </a>

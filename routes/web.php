@@ -28,8 +28,16 @@ Route::middleware('auth')->group(function () {
 })->middleware(['auth', 'verified'])->name('inicio');*/
 
 Route::get('/clientes', [ClienteController::class, 'index'])->middleware(['auth', 'verified'])->name('clientes'); 
+
 Route::get('/categorias', [CategoriaController::class, 'index'])->middleware(['auth', 'verified'])->name('categorias');
+
 Route::get('/productos', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('productos');
+Route::get('/productos/registro', [ProductoController::class, 'form_registro'])->middleware(['auth', 'verified'])->name('form_reg_producto');
+Route::post('/productos/registro', [ProductoController::class, 'registrar'])->middleware(['auth', 'verified'])->name('registro_producto');
+Route::get('/productos/edicion/{productoID}', [ProductoController::class, 'form_edicion'])->middleware(['auth', 'verified'])->name('form_edi_producto');
+Route::post('/productos/edicion/{productoID}', [ProductoController::class, 'actualizar'])->middleware(['auth', 'verified'])->name('actualiza_producto');
+Route::delete('/productos/eliminacion/{productoID}', [ProductoController::class, 'eliminar'])->middleware(['auth', 'verified'])->name('elimina_producto');
+
 Route::get('/compras', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('compras');
 
 require __DIR__.'/auth.php';

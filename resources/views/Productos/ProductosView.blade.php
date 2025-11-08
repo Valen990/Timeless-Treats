@@ -12,27 +12,27 @@
 
         <style>
             body {
-                background-color: #F0AEA1 ; /* Beige pastel */
-                font-family: 'Poppins', sans-serif;
+                background-color: #6D0A0A; 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
 
             .productos-header {
-                background-color: #C2602B ; /* Tono salmón */
+                background-color: #3b0a0aff;
             }
 
             .btn-category {
                 background-color: #fff;
-                border: 2px solid #C2602B ;
+                border: 2px solid #3b0a0aff;
                 border-radius: 50px;
                 padding: 6px 18px;
-                color: #C2602B ;
+                color: #3b0a0aff;
                 font-weight: 500;
                 transition: all 0.3s ease;
             }
 
             .btn-category:hover,
             .btn-category.active {
-                background-color: #C2602B ;
+                background-color: #3b0a0aff;
                 color: #fff;
             }
 
@@ -57,7 +57,7 @@
 
             /* === ETIQUETA DE CATEGORÍA === */
             .bg-category {
-                background-color: #C2602B  !important;
+                background-color: #3b0a0aff  !important;
                 font-size: 0.75rem;
             }
 
@@ -75,12 +75,12 @@
 
             .btn-heart i {
                 font-size: 1.2rem;
-                color: red;
+                color: #6D0A0A;
                 transition: transform 0.3s ease, color 0.3s ease;
             }
 
             .btn-heart:hover i {
-                color: red;
+                color: #6D0A0A;
                 animation: heartbeat 0.6s ease-in-out infinite;
             }
 
@@ -92,6 +92,7 @@
     </head>
     <body>
         @include('partials.navbar')
+
         <section class="productos-header text-center py-5">
             <h1 class="fw-bold text-white">Nuestros Productos</h1>
             <p class="text-white-50 fs-5">Descubre nuestra exquisita selección de productos artesanales</p>
@@ -103,13 +104,12 @@
             <div class="text-center mb-4">
                 <form method="GET" action="{{ route('productos') }}">
                     <div class="category-buttons d-flex flex-wrap justify-content-center gap-2">
-                        <button type="submit" name="categoria" value="" 
+                        <button type="submit" name="categoria" value=""
                             class="btn btn-category {{ !$categoriaID ? 'active' : '' }}">
                             Todos
                         </button>
                         @foreach ($categorias as $ct)
-                            <button type="submit" name="categoria" value="{{ $ct->categoriaID }}" 
-                                class="btn btn-category {{ $categoriaID == $ct->categoriaID ? 'active' : '' }}">
+                            <button type="submit" name="categoria" value="{{ $ct->categoriaID }}" class="btn btn-category {{ $categoriaID == $ct->categoriaID ? 'active' : '' }}">
                                 {{ $ct->nombreCategoria }}
                             </button>
                         @endforeach
@@ -118,8 +118,22 @@
             </div>
 
             <div align="right">
-                <a href="#" class="btn btn-success">Añadir Producto</a>
+                <a href="{{ route('form_reg_producto') }}" class="btn btn-success">Añadir Producto</a>
             </div>
+            <br>
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
             <br>
 
             <!-- TARJETAS DE PRODUCTOS -->
@@ -128,7 +142,8 @@
                     <div class="col-md-3 mb-4">
                         <div class="card producto-card h-100 border-0 shadow-sm">
                             <div class="position-relative">
-                                <img src="{{ asset('imagenes/productos/' . $p->fotoProducto) }}" class="card-img-top" alt="{{ $p->nombreProducto }}">
+                                <img src="{{ asset('imagenes/productos/' . $p->fotoProducto) }}"
+                                    class="card-img-top" alt="{{ $p->nombreProducto }}">
                                 <span class="badge bg-category position-absolute top-0 start-0 m-2">
                                     {{ $categorias->firstWhere('categoriaID', $p->categoriaID)->nombreCategoria ?? 'Sin categoría' }}
                                 </span>
@@ -139,13 +154,16 @@
                             <div class="card-body text-center">
                                 <p class="card-text mb-1"><strong>Id:</strong> {{ $p->productoID }}</p>
                                 <h5 class="card-title fw-semibold">{{ $p->nombreProducto }}</h5>
-                                <p class="card-text text-muted small">{{ $p->descripcionProducto }}</p>
+                                <p class="card-text mb-1"><strong></strong> {{ $p->descripcionProducto }}</p>
                                 <div class="fw-bold text-dark mb-2">${{ number_format($p->precioProducto, 0, ',', '.') }}</div>
                                 <p class="card-text mb-1"><strong>Stock:</strong> {{ $p->stockProducto }}</p>
                                 <br>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="#" class="btn btn-sm btn-outline-primary">Editar</a>
-                                    <form action="#" method="POST" onsubmit="return confirm('¿Eliminar este producto?');">
+                                    <!-- ✅ PASAMOS EL ID EN LA RUTA -->
+                                    <a href="{{ route('form_edi_producto', $p->productoID) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+
+                                    <!-- ✅ PASAMOS EL ID TAMBIÉN AQUÍ -->
+                                    <form action="{{ route('elimina_producto', $p->productoID) }}" method="POST" onsubmit="return confirm('¿Eliminar este producto?');">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-outline-danger">Eliminar</button>
@@ -154,11 +172,11 @@
                             </div>
                         </div>
                     </div>
-                @empty
-                    <p class="text-center text-muted">No hay productos en esta categoría.</p>
+                    @empty
+                        <p class="text-center text-muted">No hay productos en esta categoría.</p>
                 @endforelse
+                </div>
             </div>
-        </div>
 
         @include('partials.footer')
     </body>
