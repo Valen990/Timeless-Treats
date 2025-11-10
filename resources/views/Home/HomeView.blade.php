@@ -84,7 +84,7 @@
             
             .carousel-btn {
                 background-color: #EFD9A1;
-                color: #C3382B;
+                color: #3b0a0aff;
                 border: none;
                 width: 50px;
                 height: 50px;
@@ -248,7 +248,7 @@
             .about-section {
                 background-color: #3b0a1e;
                 padding: 4rem 0;
-                margin-top: 3rem;
+                /*margin-top: 3rem;*/
                 border-top: 1px solid #EFD9A1;
             }
 
@@ -400,6 +400,7 @@
                 padding: 0 1.5rem;
             }
 
+            /*Hay que asegurarnos de usar la misma letra (font-family) en todas las páginas, linda */
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 color: #333;

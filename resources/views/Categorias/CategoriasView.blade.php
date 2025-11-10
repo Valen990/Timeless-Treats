@@ -10,19 +10,23 @@
 
 </head>
 <body>
-    @include('partials.navbar')
 
     <style>
     /* ============================================
        SECCIÓN CATEGORÍAS
        ============================================ */
-    .categories-section {
-        padding: 3rem 0;
-        background-color:  #3b0a1e;
+    section.categorias-header {
+        background-color: #3b0a0aff;    
     }
 
-    h1.section-title {
-        color: #EFD9A1;
+    .categories-section{
+        background-color: #6D0A0A;
+        overflow: hidden;
+    }
+
+    div.container{
+        
+        background-color: #6D0A0A;
     }
 
     /* ============================================
@@ -32,16 +36,16 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 2rem;
-        margin-bottom: 4rem;
-        margin-top: 3rem;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
     }
 
     .stat-card {
         text-align: center;
         padding: 2rem;
-        background-color: #EFD9A1;
+        background-color: rgba(219, 204, 204, 0.14);
         /*background: linear-gradient(135deg, var(--primary-color), #d66a48);*/
-        color:  #3b0a1e;
+        color: #EFD9A1;
         border-radius: 1rem;
         box-shadow: var(--shadow);
         transition: var(--transition);
@@ -64,6 +68,20 @@
         font-weight: 500;
     }
 
+    .btn-añadir-cat{
+        background-color: #3b0a0aff;
+        text-decoration: none;
+        color: white;
+        padding: 0.9rem;
+        border-radius: 10px;
+        border: 1px solid white;
+        box-shadow: 0 8px 20px rgba(224, 120, 86, 0.3);
+    }
+
+    .btn-añadir-cat:hover{
+        font-weight: 600;
+    }
+
     /* ============================================
        GRID CATEGORÍAS
        ============================================ */
@@ -72,27 +90,28 @@
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         gap: 2rem;
         margin-bottom: 4rem;
+        justify-items: center; /* Centra horizontalmente las tarjetas */
+        align-items: start;
     }
 
     /* ============================================
        TARJETA CATEGORÍA
        ============================================ */
     .category-card {
-        background-color: white;
-        border-radius: 1rem;
-        padding: 2rem;
+        height: 300px;/* define el alto que quieras */
+        width: 100%;
+        background-color: #EFD9A1;
+        color: #4a0f0f;
+        border-radius: 15px;
+        padding: 1.5rem;
         text-align: center;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        display: flex;
-        flex-direction: column;
-        border: 2px solid transparent;
+        //max-width: 280px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
     }
 
     .category-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--primary-color);
-        box-shadow: 0 8px 25px rgba(224, 120, 86, 0.2);
+        transform: translateY(-5px);
     }
 
     .category-icon {
@@ -101,10 +120,18 @@
         animation: float 3s ease-in-out infinite;
     }
 
-    .category-card h3 {
+    .category-card h3 { 
         font-size: 1.5rem;
         margin-bottom: 0.75rem;
-        color: var(--text-dark);
+        color: #3b0a0aff;
+    }
+
+    p.category-desc{
+        color: #3b0a0aff;
+    }
+
+    span.product-count{
+        color: #3b0a0aff;
     }
 
     .category-desc {
@@ -127,18 +154,18 @@
     }
 
     .category-link {
-        color: var(--primary-color);
-        font-weight: 600;
+        color: #3b0a0aff;
         transition: var(--transition);
-        padding: 0.75rem 1.5rem;
-        border: 2px solid var(--primary-color);
-        border-radius: 0.5rem;
+        //padding: 0.75rem 1.5rem;
+        //border: 2px solid var(--primary-color);
+        //border-radius: 0.5rem;
         display: inline-block;
     }
 
     .category-link:hover {
         background-color: var(--primary-color);
-        color: white;
+        color: #6D0A0A;
+        font-weight: 600;
     }
 
     /* ============================================
@@ -156,7 +183,11 @@
     .featured-section h2 {
         font-size: 2rem;
         margin-bottom: 2rem;
-        color: #EFD9A1;
+        color: white;
+    }
+
+    .featured-section h2:hover{
+        font-weight: 700;
     }
 
     .promo-grid {
@@ -178,30 +209,28 @@
     }
 
     .promo-card.primary {
-        background-color: rgba(224, 120, 86, 0.1);
-        background-color: grey;
+        background-color: #3b0a0aff;
     }
 
     .promo-card.accent {
-        background-color: rgba(245, 220, 200, 0.1);
-        background-color: grey;
+        background-color: #3b0a0aff;
     }
 
     .promo-card.secondary {
-        background-color: rgba(255, 255, 255, 0.05);
-        background-color: grey;
+        background-color: #3b0a0aff;
     }
 
     .promo-card h4 {
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
-        color: var(--primary-color);
+        color: white;
     }
 
     .promo-card p {
         font-size: 0.9rem;
         opacity: 0.9;
         margin-bottom: 1rem;
+        color: white; 
     }
 
     .promo-code {
@@ -250,18 +279,21 @@
     }
 </style>
 
+@include('partials.navbar')
+<section class="categorias-header text-center py-5">
+    <h1 class="fw-bold text-white">Categorías de Productos</h1>
+</section>
 <section class="categories-section">
     <div class="container">
-        <h1 class="section-title">Categorías de Productos</h1>
 
         <!-- Estadísticas -->
         <div class="stats-container">
             <div class="stat-card">
-                <div class="stat-number">8</div>
+                <div class="stat-number">{{$totalCategorias}}</div>
                 <div class="stat-label">Categorías</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">50+</div>
+                <div class="stat-number">{{$totalProductos}}</div>
                 <div class="stat-label">Productos</div>
             </div>
             <div class="stat-card">
@@ -270,84 +302,52 @@
             </div>
         </div>
 
+        <div align="right">
+            <a href="{{route('form_reg_categoria')}}" class="btn-añadir-cat">Añadir Categoria</a>
+        </div><br><br>
+
+        <!-- Después de registrar una nueva categoría muestra un mensaje si se registró correctamente o no -->
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <!-- Grid de Categorías -->
+
         <div class="categories-grid">
-            <!-- Categoría 1 -->
+        @foreach($categorias as $c)
             <div class="category-card">
-                <div class="category-icon">🧁</div>
-                <h3>Cupcakes</h3>
-                <p class="category-desc">Cupcakes esponjosos con frosting cremoso en diferentes sabores</p>
-                <span class="product-count">12 productos</span>
-                <a href="#" class="category-link">Ver Productos →</a>
-            </div>
+                <p>{{$c->categoriaID}}</p>
+                <h3>{{$c->nombreCategoria}}</h3>
+                <p class="category-desc">{{$c->descripcionCategoria}}</p>
+                <a href="{{route('productos')}}" class="category-link">Ver Productos →</a><br><br>
 
-            <!-- Categoría 2 -->
-            <div class="category-card">
-                <div class="category-icon">🎂</div>
-                <h3>Pasteles</h3>
-                <p class="category-desc">Pasteles artesanales hechos con ingredientes premium</p>
-                <span class="product-count">8 productos</span>
-                <a href="#" class="category-link">Ver Productos →</a>
-            </div>
+                <div class="d-flex justify-content-center gap-2">
+                <!-- ✅ PASAMOS EL ID EN LA RUTA -->
+                <a href="{{ route('form_edi_categoria', $c->categoriaID) }}" class="btn btn-sm btn-outline-primary">Editar</a>
 
-            <!-- Categoría 3 -->
-            <div class="category-card">
-                <div class="category-icon">🥐</div>
-                <h3>Pasteles Franceses</h3>
-                <p class="category-desc">Croissants, éclairs y otras delicias de la pastelería francesa</p>
-                <span class="product-count">10 productos</span>
-                <a href="#" class="category-link">Ver Productos →</a>
-            </div>
-
-            <!-- Categoría 4 -->
-            <div class="category-card">
-                <div class="category-icon">🍩</div>
-                <h3>Donas</h3>
-                <p class="category-desc">Donas caseras frescas y deliciosas en múltiples sabores</p>
-                <span class="product-count">6 productos</span>
-                <a href="#" class="category-link">Ver Productos →</a>
-            </div>
-
-            <!-- Categoría 5 -->
-            <div class="category-card">
-                <div class="category-icon">🍪</div>
-                <h3>Galletas</h3>
-                <p class="category-desc">Galletas caseras crujientes y suaves de diversos tipos</p>
-                <span class="product-count">9 productos</span>
-                <a href="#" class="category-link">Ver Productos →</a>
-            </div>
-
-            <!-- Categoría 6 -->
-            <div class="category-card">
-                <div class="category-icon">🧁</div>
-                <h3>Postres Especiales</h3>
-                <p class="category-desc">Creaciones especiales y ediciones limitadas</p>
-                <span class="product-count">5 productos</span>
-                <a href="#" class="category-link">Ver Productos →</a>
-            </div>
-
-            <!-- Categoría 7 -->
-            <div class="category-card">
-                <div class="category-icon">🎁</div>
-                <h3>Cajas Presentes</h3>
-                <p class="category-desc">Cajas surtidas perfectas para regalos especiales</p>
-                <span class="product-count">7 productos</span>
-                <a href="#" class="category-link">Ver Productos →</a>
-            </div>
-
-            <!-- Categoría 8 -->
-            <div class="category-card">
-                <div class="category-icon">🍰</div>
-                <h3>Pedidos Personalizados</h3>
-                <p class="category-desc">Crea tu propio pastel personalizado para cualquier ocasión</p>
-                <span class="product-count">Consulta disponibilidad</span>
-                <a href="#" class="category-link">Solicitar Presupuesto →</a>
+                <!-- ✅ PASAMOS EL ID TAMBIÉN AQUÍ -->
+                <form action="{{ route('elimina_categoria', $c->categoriaID) }}" method="POST" onsubmit="return confirm('¿Eliminar esta categoria?');">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                </form>
             </div>
         </div>
-
+        @endforeach
         <!-- Sección Destacada -->
-        <section class="featured-section">
-            <h2>Promociones Especiales</h2>
+    </div>
+    <section class="featured-section">
+            <h2>¡Promociones Especiales!</h2>
             <div class="promo-grid">
                 <div class="promo-card primary">
                     <h4>Compra 3, Lleva 4</h4>
@@ -366,7 +366,6 @@
                 </div>
             </div>
         </section>
-    </div>
 </section>
 
     @include('partials.footer')
