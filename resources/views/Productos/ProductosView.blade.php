@@ -147,7 +147,8 @@
                                 <span class="badge bg-category position-absolute top-0 start-0 m-2">
                                     {{ $categorias->firstWhere('categoriaID', $p->categoriaID)->nombreCategoria ?? 'Sin categoría' }}
                                 </span>
-                                <button class="btn btn-light btn-heart position-absolute top-0 end-0 m-2" type="button">
+                                <button class="btn btn-light btn-heart position-absolute top-0 end-0 m-2 btn-fav"
+                                        data-id="{{ $p->productoID }}" type="button">
                                     <i class="bi bi-heart"></i>
                                 </button>
                             </div>
@@ -159,14 +160,12 @@
                                 <p class="card-text mb-1"><strong>Stock:</strong> {{ $p->stockProducto }}</p>
                                 <br>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <!-- ✅ PASAMOS EL ID EN LA RUTA -->
-                                    <a href="{{ route('form_edi_producto', $p->productoID) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <a href="{{ route('form_edi_producto', $p->productoID) }}" class="btn btn-sm btn-outline-primary">✏️ Editar</a>
 
-                                    <!-- ✅ PASAMOS EL ID TAMBIÉN AQUÍ -->
                                     <form action="{{ route('elimina_producto', $p->productoID) }}" method="POST" onsubmit="return confirm('¿Eliminar este producto?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                                        <button class="btn btn-sm btn-outline-danger">🗑️ Eliminar</button>
                                     </form>
                                 </div>
                             </div>
@@ -181,3 +180,33 @@
         @include('partials.footer')
     </body>
 </html>
+
+<script>
+    document.querySelectorAll('.btn-fav').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+        // agregar o quitar
+        if (favoritos.includes(id)) {
+            favoritos = favoritos.filter(f => f !== id);
+        } else {
+            favoritos.push(id);
+        }
+
+        localStorage.setItem('favoritos', JSON.stringify(favoritos));
+
+        // actualizar icono
+        const icon = btn.querySelector('i');
+        if (favoritos.includes(id)) {
+            icon.classList.remove('bi-heart');
+            icon.classList.add('bi-heart-fill');
+            icon.classList.add('text-danger');
+        } else {
+            icon.classList.remove('bi-heart-fill');
+            icon.classList.remove('text-danger');
+            icon.classList.add('bi-heart');
+        }
+    });
+});
+</script>
