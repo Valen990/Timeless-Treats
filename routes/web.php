@@ -45,6 +45,22 @@ Route::get('/productos/edicion/{productoID}', [ProductoController::class, 'form_
 Route::post('/productos/edicion/{productoID}', [ProductoController::class, 'actualizar'])->middleware(['auth', 'verified'])->name('actualiza_producto');
 Route::delete('/productos/eliminacion/{productoID}', [ProductoController::class, 'eliminar'])->middleware(['auth', 'verified'])->name('elimina_producto');
 
-Route::get('/compras', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('compras');
+
+// Compras / Carrito
+Route::get('/compras', [App\Http\Controllers\CompraController::class, 'index'])->name('compras.index');
+
+Route::get('/carrito', [CompraController::class, 'carrito'])->name('carrito.index');
+Route::post('/carrito/agregar', [CompraController::class, 'agregarAlCarrito'])->name('carrito.agregar');
+Route::delete('/carrito/eliminar/{id}', [App\Http\Controllers\CompraController::class, 'eliminarDelCarrito'])->name('carrito.eliminar');
+Route::delete('/carrito/vaciar', [App\Http\Controllers\CompraController::class, 'vaciarCarrito'])->name('carrito.vaciar');
+Route::post('/finalizar/compra', [CompraController::class, 'finalizarCompra'])->name('finalizar.compra');
+
+// Route::get('/compras', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('compras');
+// Route::get('/carrito', [CompraController::class, 'verCarrito'])->name('carrito.ver');
+// Route::get('/carrito/add/{id}', [CompraController::class, 'addToCart'])->name('carrito.agregar');
+// Route::get('/carrito/remove/{id}', [CompraController::class, 'eliminarDelCarrito'])->name('carrito.eliminar');
+// Route::get('/carrito/vaciar', [CompraController::class, 'vaciarCarrito'])->name('carrito.vaciar');
+// Route::post('/finalizar-compra', [CompraController::class, 'finalizarCompra'])->name('finalizar.compra');
+
 
 require __DIR__.'/auth.php';

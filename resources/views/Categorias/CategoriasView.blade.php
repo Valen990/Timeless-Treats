@@ -365,7 +365,7 @@
                     <span class="promo-code">ENVIO50</span>
                 </div>
             </div>
-        </section>
+       </section>
 </section>
 
     @include('partials.footer')

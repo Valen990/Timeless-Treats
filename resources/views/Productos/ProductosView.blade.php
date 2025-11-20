@@ -168,7 +168,12 @@
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                                     </form>
-                                </div>
+                                </div><br>
+                                <form action="{{ route('carrito.agregar') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $p->productoID }}">
+                                    <button class="btn btn-success">Añadir al carrito</button>
+                                </form>
                             </div>
                         </div>
                     </div>
