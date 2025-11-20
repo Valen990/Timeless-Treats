@@ -68,7 +68,7 @@
 
     <div class="card">
         <div class="card-header">
-            Registro de categoria
+            🎂 Registro de Categoría
         </div>
 
         <div class="card-body">

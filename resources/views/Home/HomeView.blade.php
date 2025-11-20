@@ -246,7 +246,7 @@
 
             /* ABOUT SECTION */
             .about-section {
-                background-color: #3b0a1e;
+                background-color: #6D0A0A;
                 padding: 4rem 0;
                 /*margin-top: 3rem;*/
                 border-top: 1px solid #EFD9A1;

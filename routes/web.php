@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ProductoModel;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
@@ -22,12 +23,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-#Rutas iniciales funcionando :D
-/*Route::get('/inicio', function () {
-    return view('Home.HomeView');
-})->middleware(['auth', 'verified'])->name('inicio');*/
-
 Route::get('/clientes', [ClienteController::class, 'index'])->middleware(['auth', 'verified'])->name('clientes'); 
+Route::get('/clientes/registro', [ClienteController::class, 'form_registro'])->middleware(['auth', 'verified'])->name('form_reg_cliente');
+Route::post('/clientes/registro', [ClienteController::class, 'registrar'])->middleware(['auth', 'verified'])->name('registro_cliente'); 
+Route::get('/clientes/edicion/{cedulaCliente}', [ClienteController::class, 'form_edicion'])->middleware(['auth', 'verified'])->name('form_edi_cliente');
+Route::post('/clientes/edicion/{cedulaCliente}', [ClienteController::class, 'actualizar'])->middleware(['auth', 'verified'])->name('actualiza_cliente');
+Route::delete('/clientes/eliminacion/{cedulaCliente}', [ClienteController::class, 'eliminar'])->middleware(['auth', 'verified'])->name('elimina_cliente');
 
 Route::get('/categorias', [CategoriaController::class, 'index'])->middleware(['auth', 'verified'])->name('categorias');
 //Muestra el formulario
@@ -45,6 +46,11 @@ Route::get('/productos/edicion/{productoID}', [ProductoController::class, 'form_
 Route::post('/productos/edicion/{productoID}', [ProductoController::class, 'actualizar'])->middleware(['auth', 'verified'])->name('actualiza_producto');
 Route::delete('/productos/eliminacion/{productoID}', [ProductoController::class, 'eliminar'])->middleware(['auth', 'verified'])->name('elimina_producto');
 
+//Ruta de favoritos :D
+Route::get('/favoritos', function () {
+    $productos = ProductoModel::with('belongsCategory')->get();
+    return view('Productos.Favoritos', compact('productos'));
+})->name('favoritos');
 
 // Compras / Carrito
 Route::get('/compras', [App\Http\Controllers\CompraController::class, 'index'])->name('compras.index');
@@ -54,13 +60,6 @@ Route::post('/carrito/agregar', [CompraController::class, 'agregarAlCarrito'])->
 Route::delete('/carrito/eliminar/{id}', [App\Http\Controllers\CompraController::class, 'eliminarDelCarrito'])->name('carrito.eliminar');
 Route::delete('/carrito/vaciar', [App\Http\Controllers\CompraController::class, 'vaciarCarrito'])->name('carrito.vaciar');
 Route::post('/finalizar/compra', [CompraController::class, 'finalizarCompra'])->name('finalizar.compra');
-
-// Route::get('/compras', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('compras');
-// Route::get('/carrito', [CompraController::class, 'verCarrito'])->name('carrito.ver');
-// Route::get('/carrito/add/{id}', [CompraController::class, 'addToCart'])->name('carrito.agregar');
-// Route::get('/carrito/remove/{id}', [CompraController::class, 'eliminarDelCarrito'])->name('carrito.eliminar');
-// Route::get('/carrito/vaciar', [CompraController::class, 'vaciarCarrito'])->name('carrito.vaciar');
-// Route::post('/finalizar-compra', [CompraController::class, 'finalizarCompra'])->name('finalizar.compra');
 
 
 require __DIR__.'/auth.php';

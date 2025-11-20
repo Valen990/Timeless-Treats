@@ -68,7 +68,7 @@
 
     <div class="card">
         <div class="card-header">
-            Edición de Categoría
+            ✏️ Edición de Categoría
         </div>
 
         <div class="card-body">

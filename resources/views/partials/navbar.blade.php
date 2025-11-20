@@ -141,7 +141,8 @@
                 <a href="{{ route('productos') }}">Productos</a>
                 <a href="{{ route('categorias') }}">Categorías</a>
                 <a href="{{ route('clientes') }}">Clientes</a>
-                <a href="{{ route('carrito.index') }}" class="nav-link">Carrito</a>
+                <a href="{{ route('favoritos') }}">❤️ Favoritos</a>
+                <a href="{{ route('carrito.index') }}">Carrito</a>
                 <a href="{{ route('compras.index') }}">🛒 Compras</a>
             </div>
 
